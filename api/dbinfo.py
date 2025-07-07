@@ -3,12 +3,13 @@ from flask import Flask, request, json, jsonify, render_template
 from flask_restful import Api
 import logging
 from flask_sqlalchemy import SQLAlchemy
+import os
 
-url = quote('salad-disease-db-dewinner82-f18c.j.aivencloud.com')
-port = quote('28995')
-username = quote('avnadmin')
-password =  quote('AVNS_T5A1bL7cSXKolLbMZq8')
-mysqldb = quote('defaultdb')
+url = quote(os.getenv("DB_HOST"))
+port = quote(os.getenv("DB_PORT"))
+username = quote(os.getenv("DB_USER"))
+password = quote(os.getenv("DB_PASSWORD"))
+mysqldb = quote(os.getenv("DB_NAME"))
 
 # config file
 app = Flask(__name__)
